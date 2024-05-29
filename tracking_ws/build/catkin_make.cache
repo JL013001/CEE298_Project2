@@ -1,0 +1,2 @@
+lidar_tracking/common_lib:lidar_tracking/feature_extractors:lidar_tracking/object_builders_lib:lidar_tracking/roi_filters:lidar_tracking/segmenters:lidar_tracking/tracking_lib
+-DCATKIN_DEVEL_PREFIX=/home/richard_guo/tracking_ws/devel -DCMAKE_INSTALL_PREFIX=/home/richard_guo/tracking_ws/install -G Unix Makefiles
