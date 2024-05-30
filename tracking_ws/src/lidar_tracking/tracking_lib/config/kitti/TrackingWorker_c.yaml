@@ -1,0 +1,34 @@
+tracking: {
+  threshold_contian_IoU: 0.02,
+
+  TrackingWorker: {
+      matcher_method_name: "hungarian_matcher",
+      matcher_match_distance_maximum: 3.0,  # Reduced to improve matching accuracy
+      matcher_location_distance_weight: 0.7,  # Increased to prioritize location accuracy
+      matcher_direction_distance_weight: 0.2,
+      matcher_bbox_size_distance_weight: 0.05,  # Reduced to lower impact of bounding box size
+      matcher_point_num_distance_weight: 0.05,  # Reduced to lower impact of point count
+      matcher_histogram_distance_weight: 0.5,
+
+      filter_method_name: "robust_kalman_filter",
+      filter_use_adaptive: true,
+      filter_association_score_maximum: 3.0,  # Match with matcher_match_distance_maximum
+      filter_measurement_noise: 0.3,  # Reduced to make tracking smoother
+      filter_initial_velocity_noise: 4.0,  # Reduced to make tracking smoother
+      filter_xy_propagation_noise: 8.0,  # Reduced to make tracking smoother
+      filter_z_propagation_noise: 8.0,  # Reduced to make tracking smoother
+      filter_breakdown_threshold_maximum: 8.0,  # Reduced for better control
+
+      tracker_cached_history_size_maximum: 5,
+      tracker_consecutive_invisible_maximum: 2,  # Increased to reduce object loss
+      tracker_visible_ratio_minimum: 0.6,
+      tracker_acceleration_noise_maximum: 5,
+      tracker_speed_noise_maximum: 0.4,
+
+      tracking_use_histogram_for_match: false,
+      tracking_histogram_bin_size: 10,
+      tracking_collect_age_minimum: 1,
+      tracking_collect_consecutive_invisible_maximum: 2,  # Increased to reduce object loss
+
+  }
+}

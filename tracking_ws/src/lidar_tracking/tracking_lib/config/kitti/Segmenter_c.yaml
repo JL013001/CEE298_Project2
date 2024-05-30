@@ -1,0 +1,37 @@
+detect: {
+  roi: {
+    roi_type: "Cylinder",
+    roi_lidar_height_m: 1.73,
+    roi_radius_min_m: 2.,
+    roi_radius_max_m: 100.,  # Reduced to improve region of interest
+    roi_height_below_m: 1.,
+    roi_height_above_m: 20.,
+  },
+
+  Segmenter: {
+    gpf_sensor_height: 1.73,
+    gpf_num_segment: 2,  # Increased to improve ground segmentation
+    gpf_num_iter: 5,  # Reduced iterations for faster processing
+    gpf_num_lpr: 64,  # Reduced to focus on fewer points
+    gpf_th_lprs: 0.05,  # Reduced threshold for better initial seed points
+    gpf_th_seeds: 0.1,
+    gpf_th_gnds: 0.2,  # Reduced to be more selective for ground points
+
+    sac_distance_threshold: 0.2,
+    sac_max_iteration: 50,  # Reduced iterations for faster processing
+    sac_probability: 0.99,
+
+    rec_region_size: 14,
+    rec_region_sizes: [4, 5, 5, 5, 5, 5, 5, 4, 5, 5, 5, 5, 5, 5],
+    rec_region_initial_tolerance: 0.2,
+    rec_region_delta_tolerance: 0.1,
+    rec_min_cluster_size: 20,
+    rec_max_cluster_size: 30000,
+    rec_use_region_merge: true,
+    rec_region_merge_tolerance: 4.0,
+
+    ec_tolerance: 0.2,
+    ec_min_cluster_size: 20,
+    ec_max_cluster_size: 30000,
+  },
+}
